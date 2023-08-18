@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:reto_app/design/colors.dart';
 import 'package:reto_app/design/radius.dart';
 import 'package:reto_app/widgets/custom_money_display.dart';
+import 'package:reto_app/widgets/summary_card.dart';
 class TopHomePageBody extends StatelessWidget {
   const TopHomePageBody({super.key});
 
@@ -26,12 +27,26 @@ class TopHomePageBody extends StatelessWidget {
                   ),),
               CustomMoneyDisplay(
                 amount: 2868000.12, 
+                padding: const EdgeInsets.only(top:8, right: 4),
                 amountStyle: Theme.of(context).textTheme.displayLarge!, 
                 amountStyleSmall: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                   color: AppColors.brandLightColor
-                ),)
+                ),
+              ),
+              SummaryCard(
+                typeSummaryCard: TypeSummaryCard.incomes, 
+                amount: 7000000, 
+                period: 'From January 1 to Januray 31',
+                action: () =>  print('incomes'),
+                ),
+                SummaryCard(
+                typeSummaryCard: TypeSummaryCard.spending, 
+                amount: 7000000, 
+                period: 'From January 1 to Januray 31',
+                action: () =>  print('spending'),
+                ),
           ],)
     );
   }
